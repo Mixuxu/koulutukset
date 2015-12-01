@@ -1,0 +1,373 @@
+
+@media screen and (max-width: 600px) {
+
+	label {
+		display:none;
+	}
+
+
+}
+
+
+
+
+
+
+@media screen and (min-width: 350px) {
+
+#alku {
+	padding:100px 0;
+	background-image: url('../img/auditorio22.gif');
+	background-repeat:no-repeat;
+	background-size:130%;
+	background-position:0px 40px;
+
+	
+}
+
+
+}
+
+
+
+@media screen and (min-width: 450px) {
+	
+#alku img {
+		height:100px;
+	}
+		
+	
+	
+
+
+	
+	
+nav {
+	margin:0 10px 0 -50px;
+	
+}
+	
+
+	#alkuteksti h1 {
+		padding:100px 0 0 0;
+	}
+	
+	
+	
+nav a {
+	
+   font-weight:700; 
+   font-size:0.9em;
+   padding:0 5px;
+   
+}
+	
+	
+	
+}
+
+
+
+@media screen and (min-width: 600px) {
+	
+	
+.form-style-1 .field-divided{
+    width:100%;
+	
+}	
+	
+	
+	#logo {
+	max-width:150px;
+	padding:20px 0 0 12px;
+}
+	
+	
+	
+	#alku h2 {
+	padding-top:70px;
+	font-size:2.4em;
+	padding:20px 10px 0 10px;
+	
+	
+}
+	
+	
+	
+	#alku {
+		background-size:100%;
+		
+}
+
+	
+	
+	
+	
+}
+
+
+
+
+@media screen and (min-width: 900px) {
+	
+/*******************************
+YLEISET
+*******************************/
+.form-style-1 .field-divided{
+    width:100%;
+	
+}
+
+	#wrapper2 {
+	max-width:750px;
+	text-align:center;
+	margin:0 auto;
+}
+	#wrapper {
+	max-width:940px;
+	text-align:center;
+	margin:0 auto;
+}
+	
+	nav {
+		padding:40px 50px 0 0;
+	}
+	
+	p {
+		font-size:1.2em;
+	}
+	
+	h1 {
+		font-size:2em;
+	}
+
+
+	#alkukuva h2 {
+	font-size:3em;
+	padding:170px 2px 0 2px;
+	}
+	
+	#alkukuva  {
+	height:400px;
+	}
+	
+	
+/*******************************
+INDEX/ETUSIVU
+*******************************/
+	
+	
+	
+	#alku h2 {
+	font-size:3em;
+	}
+
+	
+	#alku img {
+		height:120px;
+	}
+	
+	
+	
+	
+	
+	#alkuteksti {
+		padding:0 7% 100px 7%;
+	}
+
+
+	
+	#logo {
+		padding:20px 0 0 50px;
+		
+	}
+	
+	footer {
+		clear:both;
+	}
+	
+	#koulutukset {
+			padding:250px 5% 250px 5%;
+			width:40%;	
+			float:left;
+			border-bottom:1px solid #ffffff;
+	}
+	
+	#koulutukset img{
+	height:300px;
+	width:300px;
+}
+	
+	#luonti {
+		padding:250px 5% 250px 5%;
+		width:40%;	
+		float:right;
+	}
+	
+	#luonti img{
+	height:300px;
+	width:300px;
+}
+}
+
+
+/*******************************
+KOULUTUKSET
+*******************************/
+
+
+#koulutuslista {
+	padding:15% 10% 0 10%;
+	
+}
+
+
+	
+	
+
+@media screen and (min-width: 1280px) {
+	
+	.koulutukset {
+	
+	padding:110px 5% 130px 5%;
+	
+	
+}
+	
+	
+	#alku {
+		padding:10% 20px;
+		background-size:100%;
+	}
+	
+	
+		h1 {
+		font-size:2.8em;
+	}
+	
+	#alku h2 {
+		font-size:4.0em;
+	}
+	
+	#alku img {
+		height:180px;
+	}
+	
+	
+	#alkuteksti {
+		padding:0 20% 200px 20%;
+		
+	}
+	
+	
+	#wrapper {
+	max-width:1200px;
+	text-align:center;
+	margin:0 auto;
+}
+	
+	nav {
+		padding:40px 20% 0 0;
+	}
+	
+	
+	
+	
+	#logo {
+		padding:5px 0 0 20%;
+		max-width:200px;
+	}
+	
+	#koulutukset img{
+	height:360px;
+	width:360px;
+}
+	
+	
+	#luonti img{
+	height:360px;
+	width:360px;
+	
+}
+
+
+#koulutukset {
+			padding:250px 7.5% 250px 7.5%;
+			width:35%;	
+			border-bottom:1px solid #ffffff;
+	}
+	
+	
+
+	
+	#luonti {
+		padding:250px 7.5% 250px 7.5%;
+		width:35%;	
+		
+	}
+	
+	
+
+}
+
+
+
+
+
+/* lisätyt */
+
+
+@media screen and (MIN-width: 600px) {
+
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #fff;
+	font-weight:600;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: #fff;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: #fff;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: #fff;
+}
+
+
+.form-style-1 .field-divided{
+    width:95%;
+	
+}
+	
+	
+
+label {
+	font-size:1em;
+	font-weight:600;
+	color:#00aeef;
+	padding-right:500px;
+	
+	
+	
+}
+
+.form {
+	
+	text-align:left;
+	
+}
+
+.form H1{
+	padding:50px 5%;
+	text-align:center;
+	list-style:none;
+}
+
+
+}
+
+
+

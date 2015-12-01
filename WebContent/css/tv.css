@@ -1,0 +1,103 @@
+html {
+ -ms-word-break: break-all;
+     word-break: break-all;
+ 
+-webkit-hyphens: auto;
+   -moz-hyphens: auto;
+        hyphens: auto;
+
+}
+	table {
+	text-align:left;
+	
+}
+
+table td {
+
+}
+
+	table.ex1 {margin-left:10px; margin:right: 10px;}
+   table.ex1 {border-spacing: 0}
+   table.ex1 td, th {padding: 0 0.2em}
+   table.ex1 tr:nth-child(odd) {color: #000; background: #FFF}
+   table.ex1 tr:nth-child(even) {color: #000; background: 	#8DB9CC;}
+ 
+ .aika {
+ 	width:160px;
+} 
+.aihe {
+		width:350px;
+}
+.paikka {
+		width:300px;
+}
+.kuvaus{
+		width:600px;
+}
+.kouluttaja{
+		width:400px;
+}
+ 
+ 
+a {
+	text-decoration:none; 
+	color:000000;   
+}
+
+
+h1 {
+	font-size:1.7em;
+}
+
+
+p {font-size:1.7em;
+}
+
+
+
+body{    
+    margin-left: 0px;
+    padding-top: 0px;
+	font-family: 'Open Sans', sans-serif;
+	
+}
+
+
+
+
+#logo {
+	float:left;
+	position:fixed;
+	padding:10px;
+}
+
+
+
+
+/*******************************
+FOOTER
+*******************************/
+
+footer {
+
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:auto;
+   width:100%;
+	background-color:#dbdbdb;
+	text-align:center;
+	
+	
+	
+}
+
+
+
+footer p {
+	font-size:1em;
+	text-align:center;
+	padding:0px;
+}
+
+
