@@ -7,19 +7,19 @@ import javax.validation.constraints.Size;
 
 public class Koulutus {
 	@NotNull(message = "T‰yt‰ kentt‰, kiitos")
-	@Size(min = 3, max = 50, message = "3-50 merkki‰, kiitos")
+	@Size(min = 3, max = 30, message = "3-30 merkki‰, kiitos")
 	private String opettaja;
 	@NotNull(message = "T‰yt‰ kentt‰, kiitos")
-	@Size(min = 2, max = 50, message = "2-50 merkki‰, kiitos")
+	@Size(min = 3, max = 30, message = "3-30 merkki‰, kiitos")
 	private String aihe;
 	@NotNull(message = "T‰yt‰ kentt‰, kiitos")
-	@Size(min = 2, max = 50, message = "2-50 merkki‰, kiitos")
+	@Size(min = 3, max = 30, message = "3-30 merkki‰, kiitos")
 	private String kouluttaja;
 	@NotNull(message = "T‰yt‰ kentt‰, kiitos")
-	@Size(min = 2, max = 50, message = "2-50 merkki‰, kiitos")
+	@Size(min = 3, max = 30, message = "3-30 merkki‰, kiitos")
 	private String paikka;
 
-	@Size(max = 250, message = "Enint‰‰n 250 merkki‰, kiitos")
+	@Size(max = 100, message = "Enint‰‰n 100 merkki‰, kiitos")
 	private String kuvaus;
 
 	private int koulutus_id;

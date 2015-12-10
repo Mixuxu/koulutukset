@@ -1,6 +1,8 @@
 package fi.softala.koulutukset.servlet;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.inject.Inject;
@@ -12,6 +14,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import fi.softala.koulutukset.bean.Koulutus;
 import fi.softala.koulutukset.dao.KoulutusDAO;
@@ -43,7 +46,6 @@ public class SecureController {
 		String stringNykyaika = sdf.format(nykyaika);
 		// asetetaan lomakkeen formiin oletusarvoksi nykyaika
 		koulutus.setAloitusaikaPvm(stringNykyaika);
-		koulutus.setLopetusaikaPvm(stringNykyaika);
 
 		// lis‰t‰‰n attribuuttina edell‰ luotu koulutus arvoineen
 		model.addAttribute(koulutus);
@@ -60,7 +62,7 @@ public class SecureController {
 	// mihink‰‰n
 	public String teeKoulutus(
 			@Valid @ModelAttribute("koulutus") Koulutus koulutus,
-			BindingResult result, Model model) {
+			BindingResult result, Model model) throws ParseException {
 
 		// jos ei mene l‰pi
 		if (result.hasErrors()) {
@@ -70,9 +72,44 @@ public class SecureController {
 			// lis‰t‰‰n olio tietokantaan jos validointi l‰pi
 			dao.lisaa(koulutus);
 			
-			return "redirect:/hallinta?lisatty=true";
+			return "redirect:/secure/hallinta?lisatty=true";
 		}
 
 	}
+	
+	// koulutussivu, jossa poistanappi
+	@RequestMapping(value = "hallinta", method = RequestMethod.GET)
+	public String haeHallinta(Model model, boolean lisatty, boolean poistettu) {
+
+		if (lisatty == true) {
+			model.addAttribute("lisays", "true");
+		} else if (lisatty == false) {
+			model.addAttribute("lisays", "false");
+		}
+		if (poistettu == true) {
+			model.addAttribute("poistettu", "true");
+		} else if (poistettu == true) {
+			model.addAttribute("poistettu", "false");
+		}
+		boolean tv = false;
+		ArrayList<Koulutus> koulutukset = dao.haeOikeastiKaikki(tv);
+		ArrayList<Koulutus> koulutuksetM = dao.haeMenneet(tv);
+		// l‰hetet‰‰n arraylist (huomaa model!)
+		model.addAttribute("koulutukset", koulutukset);
+		model.addAttribute("koulutuksetM", koulutuksetM);
+		return "WEB-INF/secure/taulukko";
+	}
+	
+	// TIETOJEN POISTAMINEN
+		@RequestMapping(value = "poista", method = RequestMethod.POST)
+		// pyydet‰‰n painetun napin parametrin‰ saatu id
+		public String delete(@RequestParam("poistaid") int koulutus_id, Model model) {
+
+			// poistetaan saadun id:n koulutus
+			dao.poista(koulutus_id);
+
+			// ohjataan haeHallinta()
+			return "redirect:/secure/hallinta?poistettu=true";
+		}
 
 }

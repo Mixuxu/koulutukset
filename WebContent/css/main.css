@@ -588,6 +588,8 @@ select{
     -ms-transition: all 0.30s ease-in-out;
     -o-transition: all 0.30s ease-in-out;
 }
+
+
 .form-style-1 input[type=submit]:hover, .form-style-1 input[type=button]:hover{
     background: #007AA7;
     box-shadow:none;
@@ -614,4 +616,155 @@ select{
 
 .wanhatkoulutukset {
 	background-color: #A5DDFE;
+}
+
+
+/*******************************
+LOGIN
+*******************************/
+
+
+
+.loginteksti {
+	border-bottom:1px solid #AFAFAF;
+	padding:60px 0;
+	text-align:center;
+	margin-top:30px;
+}
+
+
+.loginteksti h1 {
+	font-size:1.5em
+}
+
+.login {
+	background-color:#0d69af;
+	padding:100px 0;
+	margin:0 auto;
+	
+}
+
+.login  ul {
+	margin:0 auto;
+	text-align:center;
+	-webkit-padding-start: 0;
+	-moz-padding-start: 0;
+	-ms-padding-start: 0;
+	-o-padding-start: 0;
+}
+
+.login li {
+	
+	list-style:none;
+	
+	
+}
+
+
+
+
+
+
+	
+.nappula {
+	text-align:center;
+	margin:10px 0;
+	}
+	
+	
+	
+.login img {
+	display:block;
+	margin:0 auto;
+	width:180px;
+	padding:15px 0;
+}
+
+
+
+
+
+.form-style-2 input[type=submit], .form-style-2 input[type=button]{
+	
+    background: #00aeef;
+	border-radius:10px;
+	padding:15px 0;
+    border: none;
+    color: #fff;
+	font-size:1em;
+	font-weight:600;
+	-webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+	
+	width:86%;
+	
+}
+
+
+
+.form-style-2 input[type=submit]:hover, .form-style-2 input[type=button]:hover{
+    background: #222;
+    box-shadow:none;
+	border-radius:10px;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+	color:white;
+}
+	
+	
+	.form-style-2 input[type=text] , input[type="password"], 
+		textarea
+{
+	
+    border: none;
+	border-radius:10px;
+    padding: 15px 10px;
+	margin:5px auto;
+    outline: none;  
+	width:81%;
+	
+	
+	
+	
+}
+/* Bootstrap korjaukset */
+ul#bootstrapNaviFixi {
+    margin-top: 4.5%;
+    margin-bottom: auto;
+    font-size:medium;
+    
+}
+img#logo {
+	box-sizing: initial;
+}
+* {
+	font-family: "Open Sans",sans-serif;
+	
+}
+.bootstrapOtsikkoFixi {
+	font-weight: bold ;
+	margin-top: 2%;
+}
+h2#otsikkoFonttiKoko {
+	
+}
+/* Parempi nappi kuin jannen */
+#parempiNappi:hover {
+	background: #222 none repeat scroll 0% 0%;
+	box-shadow: none;
+	border-radius: 10px;
+	color: #FFF;
+}
+#parempiNappi {
+	border-radius: 10px;
+	font-size: 1em;
+font-weight: 600;
+transition: all 0.3s ease-in-out 0s;
+width: 30%;
+padding: 15px 0px;
+border: medium none;
+text-align: center;
+margin: 5px 5px 5px 12px;
 }

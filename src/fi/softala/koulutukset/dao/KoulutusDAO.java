@@ -1,5 +1,9 @@
 package fi.softala.koulutukset.dao;
 
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -77,7 +81,7 @@ public class KoulutusDAO {
 		String sql = "SELECT koulutus_id, opettaja, aihe, aloitusaikapvm, lopetusaikapvm, paikka, kouluttaja, kuvaus"
 				+ " FROM Koulutus"
 				+ " WHERE aloitusaikapvm < CURRENT_TIMESTAMP"
-				+ " ORDER BY aloitusaikapvm ASC";
+				+ " ORDER BY aloitusaikapvm DESC";
 
 		if (tv == false) {
 			// kutsutaan mapperia joka mappaa kaikki koulutukset
@@ -106,12 +110,24 @@ public class KoulutusDAO {
 		jdbcTemplate.update(sql, parametri);
 	}
 
-	public void lisaa(Koulutus k) {
+	public void lisaa(Koulutus k) throws ParseException {
 
 		String sql = "INSERT INTO Koulutus(aloitusaikapvm, lopetusaikapvm, opettaja, aihe, kouluttaja, paikka, kuvaus) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		// muutetaan longiksi lopetusaika stringi
+		String lopetuksenKestoString = k.getLopetusaikaPvm();
+		Long lopetuksenKesto = Long.parseLong(lopetuksenKestoString);
+		// Tehdään aloitusaika stringistä date
+		String pvm = k.getAloitusaikaPvm();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		Date mihinLisataan = sdf.parse(pvm);
+
+		// UUSI HALUTTU AIKA
+		Date kesto = new Date(mihinLisataan.getTime() + lopetuksenKesto);
+		// Kantaa formatoitu muoto
+		String lopetusaikaStringFormatoitu = sdf.format(kesto);
 
 		Object[] parametrit = new Object[] { k.getAloitusaikaPvm(),
-				k.getLopetusaikaPvm(), k.getOpettaja(), k.getAihe(),
+				lopetusaikaStringFormatoitu, k.getOpettaja(), k.getAihe(),
 				k.getKouluttaja(), k.getPaikka(), k.getKuvaus() };
 
 		// ajetaan lause

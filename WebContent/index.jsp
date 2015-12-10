@@ -33,6 +33,7 @@
 <nav>
 	<ul>
 		<li><a href="kaikki">KOULUTUKSET</a></li>
+		<li><a href="secure/hallinta">HALLINTA</a></li>
 		<li><a href="secure/lomake">LUO KOULUTUS</a></li>
 				<sec:authorize access="hasRole('ROLE_ADMIN')">
 					<li><a href="j_spring_security_logout">KIRJAUDU ULOS</a></li>

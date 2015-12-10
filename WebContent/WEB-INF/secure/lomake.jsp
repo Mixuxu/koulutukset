@@ -22,17 +22,36 @@
 	rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css"
 	href="../css/bootstrap-datetimepicker.min.css">
-<link
-	href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css"
-	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+	crossorigin="anonymous">
 <link rel="stylesheet" href="../css/main.css">
 <link rel="stylesheet" href="../css/responsive.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ohjelmistokehitys | koulutukset</title>
-<script type="text/javascript"
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/moment-with-locales.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+	integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+	crossorigin="anonymous"></script>
+<script src="../js/bootstrap-datetimepicker.min.js"></script>
 <script type="text/javascript" src="../js/modernizr.custom.79639.js"></script>
 <script src="../js/drop.js"></script>
+<script type="text/javascript">
+		var d = new Date();
+			$(function() {
+				$('#datetimepicker1').datetimepicker({
+					locale : 'fi',
+					inline : true,
+					sideBySide : true,
+					format : "YYYY-MM-DD HH:mm",
+					defaultDate: d,
+					minDate : d
+				});
+			});
+		</script>
 <noscript>
 	<link rel="stylesheet" type="text/css" href="../css/noJS.css" />
 </noscript>
@@ -46,9 +65,9 @@
 		<a href="../"><img src="../img/logohaaga.gif" id="logo"></a>
 
 		<nav>
-			<ul>
+			<ul id="bootstrapNaviFixi" >
 				<li><a href="../kaikki">KOULUTUKSET</a></li>
-				<li><a href="../hallinta">HALLINTA</a></li>
+				<li><a href="hallinta">HALLINTA</a></li>
 				<sec:authorize access="hasRole('ROLE_ADMIN')">
 					<li><a href="../j_spring_security_logout">KIRJAUDU ULOS</a></li>
 				</sec:authorize>
@@ -58,95 +77,107 @@
 	</header>
 
 	<div id="alkukuva">
-		<h2>LUO KOULUTUS</h2>
+		<h2 class="bootstrapOtsikkoFixi" id="otsikkoFonttiKoko">LUO KOULUTUS</h2>
 	</div>
-	
+
 
 	<sec:authorize access="hasRole('ROLE_ADMIN')">
 		<div class="form">
-			<h1>KOULUTUKSEN LUONTI</h1>
+			<h1 class="bootstrapOtsikkoFixi">KOULUTUKSEN LUONTI</h1>
 			<div id="wrapper2">
 				<%-- action menee controllerissa @RequestMapping jossa value="lomake" --%>
 				<form:form method="POST" action="lomake" commandName="koulutus">
 					<fieldset>
 						<ul class="form-style-1">
 							<li><label>AIHE</label> <form:input path="aihe"
-									 class="field-divided" placeholder="Aihe" maxlength="50"/></li>
+									class="field-divided" placeholder="Aihe" maxlength="30" /></li>
 							<li class="errors"><form:errors path="aihe" /></li>
-							<li><label>KUVAUS</label> <form:input path="kuvaus"  class="field-divided" placeholder="Kuvaus" maxlength="250" /></li>
+							<li style="display:none"><label>KUVAUS</label> <form:input path="kuvaus"
+									class="field-divided" value="kuvaus" placeholder="Kuvaus" maxlength="100" /></li>
 							<li class="errors"><form:errors path="kuvaus" /></li>
-							<li><label>KOULUTTAJA</label> <form:input path="kouluttaja" class="field-divided" placeholder="Kouluttaja"
-									maxlength="50" /></li>
+							<li><label>KOULUTTAJA</label> <form:input path="kouluttaja"
+									class="field-divided" placeholder="Kouluttaja" maxlength="30" /></li>
 							<li class="errors"><form:errors path="kouluttaja" /></li>
-							<li><label>OPETTAJA</label> <form:input path="opettaja" class="field-divided" placeholder="Opettaja" maxlength="50"/></li>
+							<li><label>OPETTAJA</label> <form:input path="opettaja"
+									class="field-divided" placeholder="Opettaja" maxlength="30" /></li>
 							<li class="errors"><form:errors path="opettaja" /></li>
-							<li><label>PAIKKA</label> <form:input path="paikka" class="field-divided" placeholder="Paikka"  maxlength="50"/></li>
+							<li><label>PAIKKA</label> <form:input path="paikka"
+									class="field-divided" placeholder="Paikka" maxlength="30" /></li>
 							<li class="errors"><form:errors path="paikka" /></li>
-							<li><label>ALOITUSAIKA</label> <!-- Wanha tyyli
+							<!-- Wanha tyyli
  <input type="text" name="aloitusaikaPvm" class="field-divided" placeholder="1970-01-30 12:12:12" 
 	pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31)) (0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9]){2}"
 	required/></li> -->
 
-
-								<div id="datetimepicker1" class="input-append date">
-									<form:input data-format="yyyy-MM-dd hh:mm" path="aloitusaikaPvm" readOnly="true" class="field-divided"  /> <span
-										class="add-on"> <i data-time-icon="icon-time"
+							<li><label>ALOITUSAIKA</label> <%-- <div id="datetimepicker1" class="input-append date">
+									<form:input data-format="yyyy-MM-dd hh:mm"
+										path="aloitusaikaPvm" readOnly="true" class="field-divided" />
+									<span class="add-on"> <i data-time-icon="icon-time"
 										data-date-icon="icon-calendar" class="icon"> </i>
 									</span>
-								</div> <script src="../js/jquery.min.js"></script> <script
-									src="../js/bootstrap.min.js"></script> <script
-									src="../js/bootstrap-datetimepicker.min.js"></script> <script
-									src="../js/bootstrap-datetimepicker.fi.js"></script> <script
-									type="text/javascript">
-									
+								</div> <script type="text/javascript">
 									var d = new Date();
 									var month = d.getMonth();
 									var day = d.getDate();
 									var year = d.getFullYear();
-									
-										$(function() {
-											$('#datetimepicker1').datetimepicker({
-														language : 'fi',
-														pickSeconds : false
-														
 
-													});
-											$("#datetimepicker1").data('datetimepicker').setLocalDate(new Date(year, month, day, 08, 00));
-											
-											
+									$(function() {
+
+										$('#datetimepicker1').datetimepicker({
+											language : 'fi',
+											pickSeconds : false,
+											minDate : d
+
 										});
-									</script></li>
+										$("#datetimepicker1").data(
+												'datetimepicker').setLocalDate(
+												new Date(year, month, day, 08,
+														00));
+
+									});
+								</script> --%>
+								<div style="overflow:hidden;">
+								<div  id='datetimepicker1'>
+									<form:input type="hidden" path="aloitusaikaPvm"  /> <!--  <span
+										class="input-group-addon"  >
+- 										 <span 
+								class="glyphicon glyphicon-calendar"></span> 
+									</span> -->
+								
+		
+		</div>
+</div>
+
+		</li>
 
 
-<li><form:errors path="aloitusaikaPvm" /></li>
+		<li><form:errors path="aloitusaikaPvm" /></li>
 
-							<li><label>LOPETUSAIKA</label> <!-- Wanha tyyli 
+		<!-- <li><label>LOPETUSAIKA</label> -->
+		<!-- Wanha tyyli 
 					<input type="text"
 			name="lopetusaikaPvm" class="field-divided"
 			placeholder="1970-01-30 12:12:12"
 			pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31)) (0[0-9]|1[0-9]|2[0-3])(:[0-5][0-9]){2}"
 			required /></li> -->
-								<div id="datetimepicker2" class="input-append date ">
-									<form:input data-format="yyyy-MM-dd hh:mm" path="lopetusaikaPvm" readOnly="true" class="field-divided"/> <span
-										class="add-on"> <i data-time-icon="icon-time"
-										data-date-icon="icon-calendar"> </i>
-									</span>
-								</div> <script type="text/javascript">
-									$(function() {
-										$('#datetimepicker2').datetimepicker({
-											language : 'fi',
-											pickSeconds : false
-										});
-										$("#datetimepicker2").data('datetimepicker').setLocalDate(new Date(year, month, day, 08, 00));
-									});
-								</script></li>
-					<li><form:errors path="lopetusaikaPvm" /></li>
 
-							<li><input type="submit" value="Lähetä" /></li>
-						</ul>
-				</fieldset>
+		<!-- valuet millisekunteina -->
+		<li><label>KESTO</label> <form:select class="field-divided"
+				path="lopetusaikaPvm">
+				<form:option value="1800000">30min</form:option>
+				<form:option value="3600000">1h</form:option>
+				<form:option value="5400000">1h 30min</form:option>
+				<form:option value="7200000">2h</form:option>
+				<form:option value="9000000">2h 30min</form:option>
+				<form:option value="10800000">3h</form:option>
+			</form:select></li>
+		<li><form:errors path="lopetusaikaPvm" /></li>
+
+		<li><input type="submit" value="Lähetä" /></li>
+		</ul>
+		</fieldset>
 		</form:form>
-			</div>
+		</div>
 	</sec:authorize>
 
 

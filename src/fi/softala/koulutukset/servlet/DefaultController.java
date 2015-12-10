@@ -56,28 +56,7 @@ public class DefaultController {
 		return "taulukko_ilman_poista";
 	}
 
-	// koulutussivu, jossa poistanappi
-	@RequestMapping(value = "hallinta", method = RequestMethod.GET)
-	public String haeHallinta(Model model, boolean lisatty, boolean poistettu) {
 
-		if (lisatty == true) {
-			model.addAttribute("lisays", "true");
-		} else if (lisatty == false) {
-			model.addAttribute("lisays", "false");
-		}
-		if (poistettu == true) {
-			model.addAttribute("poistettu", "true");
-		} else if (poistettu == true) {
-			model.addAttribute("poistettu", "false");
-		}
-		tv = false;
-		ArrayList<Koulutus> koulutukset = dao.haeOikeastiKaikki(tv);
-		ArrayList<Koulutus> koulutuksetM = dao.haeMenneet(tv);
-		// l‰hetet‰‰n arraylist (huomaa model!)
-		model.addAttribute("koulutukset", koulutukset);
-		model.addAttribute("koulutuksetM", koulutuksetM);
-		return "taulukko";
-	}
 
 	// info TV:n ihkaoma sivu
 	@RequestMapping(value = "tv", method = RequestMethod.GET)
@@ -105,17 +84,7 @@ public class DefaultController {
 		return "index";
 	}
 
-	// TIETOJEN POISTAMINEN
-	@RequestMapping(value = "poista", method = RequestMethod.POST)
-	// pyydet‰‰n painetun napin parametrin‰ saatu id
-	public String delete(@RequestParam("poistaid") int koulutus_id, Model model) {
-
-		// poistetaan saadun id:n koulutus
-		dao.poista(koulutus_id);
-
-		// ohjataan haeHallinta()
-		return "redirect:/hallinta?poistettu=true";
-	}
+	
 
 	// loginsivu
 	@RequestMapping(value = "/loginpage", method = RequestMethod.GET)

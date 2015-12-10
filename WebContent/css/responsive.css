@@ -25,7 +25,10 @@
 	
 }
 
-
+.form-style-1 .field-divided{
+    padding-left:10px;
+	
+}	
 }
 
 
@@ -70,6 +73,17 @@ nav a {
 
 @media screen and (min-width: 600px) {
 	
+	
+	
+.login {
+	text-align:center;
+	background-color:#0d69af;
+	margin:110px auto;
+	border-radius:10px;
+	width:400px;
+	height:200px;
+	padding:0px 0 100px 0;
+}
 	
 .form-style-1 .field-divided{
     width:100%;
@@ -151,7 +165,32 @@ YLEISET
 	height:400px;
 	}
 	
-	
+
+
+/*******************************
+LOGIN
+*******************************/
+
+
+
+.loginteksti  {
+	float:left;
+	width:40%;
+	border-bottom:none;
+	padding:90px 0;
+}
+
+.loginwrapper {
+	float:right;
+	width:50%;
+}
+
+
+#wrapper2{
+	max-width:800px;
+	text-align:center;
+	margin:0 auto;
+}
 /*******************************
 INDEX/ETUSIVU
 *******************************/
@@ -321,19 +360,19 @@ KOULUTUKSET
 
 
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color: #fff;
+    color: #00aeef;
 	font-weight:600;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color: #fff;
+   color: #00aeef;
    opacity:  1;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color: #fff;
+   color: #00aeef;
    opacity:  1;
 }
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color: #fff;
+   color: #00aeef;
 }
 
 

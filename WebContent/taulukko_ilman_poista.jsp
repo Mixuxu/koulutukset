@@ -18,14 +18,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=7">
 <!-- refreshaa sivun joka 60 sekunti
  -->
-<meta http-equiv="refresh" content="60" >
+
 <title>Koulutuslista</title>
 <LINK REL="SHORTCUT ICON" href="img/icon.gif"></LINK>
 <link href='http://fonts.googleapis.com/css?family=Changa+One|Open+Sans:400italic,700italic,400,700,800' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <link rel="stylesheet" type="text/css" href="css/responsive.css">
 
- <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript" src="js/modernizr.custom.79639.js"></script> 
 <script src="js/drop.js"></script> 
@@ -40,6 +40,9 @@
 <nav>
 	<ul>
 		<li><a href="kaikki">KOULUTUKSET</a></li>
+		<sec:authorize access="hasRole('ROLE_ADMIN')">
+					<li><a href="secure/hallinta">HALLINTA</a></li>
+				</sec:authorize>
 		<li><a href="secure/lomake">LUO KOULUTUS</a></li>
 				<sec:authorize access="hasRole('ROLE_ADMIN')">
 					<li><a href="j_spring_security_logout">KIRJAUDU ULOS</a></li>
@@ -72,8 +75,8 @@
 			<div class="wrapper-dropdown-5 dd" tabindex="1"><p class="alkupalkkiaihe"><c:out value="${koulutus.aihe}" /><p class="alkupalkkiaika"><c:out value="${koulutus.aloitusaikaPvm}" /></p>
 			<ul class="dropdown">
 			
-				<li><a href="#"><b>Kuvaus: </b><c:out value="${koulutus.kuvaus}" /></a></li>
-				<li><a href="#"><b>Kouluttaja: </b><c:out value="${koulutus.kouluttaja}" /></a></li>
+<%-- 				<li><a href="#"><b>Kuvaus: </b><c:out value="${koulutus.kuvaus}" /></a></li>
+ --%>				<li><a href="#"><b>Kouluttaja: </b><c:out value="${koulutus.kouluttaja}" /></a></li>
 				<li><a href="#"><b>Opettaja: </b><c:out value="${koulutus.opettaja}" /></a></li>
 				<li><a href="#"><b>Paikka: </b><c:out value="${koulutus.paikka}" /></a></li>
 				<li><a href="#"><b>Aloitusaika: </b><c:out value="${koulutus.aloitusaikaPvm}" /></a></li>
